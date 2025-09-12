@@ -6,8 +6,7 @@
 #define str std::to_string
 
 std::vector<int> find_all_primes(int start, int end) {
-    std::vector<int> prime_numbers={1};
-    // 1 is prime but shouldn't be used in sieve multiplication
+    std::vector<int> prime_numbers;
     std::map<int, bool> nonprime_numbers;
     for (int i : range(start, end)) {
         if (nonprime_numbers[i]) {
