@@ -14,6 +14,12 @@ int gcd_by_subtraction(int a, int b) {
 }
 
 int gcd_by_division(int a, int b) {
+    if (a==0) {
+        return b;
+    }
+    if (b==0) {
+        return a;
+    }
     if (a>b) {
         return gcd_by_division(std::div(a, b).rem, b);
     }
