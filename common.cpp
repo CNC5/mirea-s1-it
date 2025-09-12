@@ -2,6 +2,8 @@
 #include <string>
 #include <regex>
 
+#define str std::to_string
+
 void print(std::string prompt) {
     std::cout<<prompt<<std::endl;
 }
@@ -57,5 +59,17 @@ std::vector<float> range(float start, float end, float step) {
 }
 
 std::vector<float> range(float start, float end) {
+    return range(start, end, 1.);
+}
+
+std::vector<int> range(int start, int end, int step) {
+    std::vector<int> out_range = {};
+    for (float i=start; i<end+step; i += step) {
+        out_range.push_back(i);
+    }
+    return out_range;
+}
+
+std::vector<int> range(int start, int end) {
     return range(start, end, 1);
 }
