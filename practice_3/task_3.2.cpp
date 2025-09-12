@@ -5,7 +5,6 @@
 int main() {
     char buff[1];
     std::ifstream fin("alphanum.txt");
-    print(fin.good());
     while (fin.good()) {
         fin.read(buff, 1);
         if (std::isdigit(buff[0])) {
