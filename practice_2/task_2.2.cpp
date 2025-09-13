@@ -1,5 +1,4 @@
 #include <cmath>
-#include <string>
 #include "../common.cpp"
 
 float z(float x, float y, float b) {
