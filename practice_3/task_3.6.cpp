@@ -14,8 +14,16 @@ int main() {
     std::string result;
     std::ifstream fin("task_3.6.txt");
     int sum=0;
-    while (fin>>result) {
-        sum += atoi(result.c_str());
+    std::string num;
+    char ch[1];
+    while (fin.good()) {
+        fin.read(ch, 1);
+        if (ch[0] == ' ') {
+            sum += atoi(num.c_str());
+            num = "";
+            continue;
+        }
+        num += ch;
     }
     fin.close();
 
