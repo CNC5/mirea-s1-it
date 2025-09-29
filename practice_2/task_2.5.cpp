@@ -2,6 +2,10 @@
 #include "../common.cpp"
 
 float m(float S, float n, float p) {
+    if ((std::pow((1 + r), n) - 1) == 0) {
+        print("Ошибка: ((1 + r)**n - 1) == 0, невозможно поделить")
+        exit(1);
+    }
     float r=p/100;
     return
         (S*r*std::pow((1 + r), n))/

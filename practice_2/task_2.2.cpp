@@ -2,7 +2,15 @@
 #include "../common.cpp"
 
 float z(float x, float y, float b) {
-    return log10(b-y) * sqrt(b-x);
+    if (b-x < 0) {
+        print("Ошибка: b-x < 0, невозможно вычислить корень")
+        exit(1);
+    }
+    if (b-y <= 0) {
+        print("Ошибка: b-y == 0, невозможно вычислить логарифм")
+        exit(1);
+    }
+    return log(b-y) * sqrt(b-x);
 }
 
 int main() {

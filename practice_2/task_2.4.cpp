@@ -2,13 +2,17 @@
 #include "../common.cpp"
 
 float y(float x) {
-    return 
+    if (x-1 == 0) {
+        print("Ошибка: x-1 == 0, невозможно поделить")
+        exit(1);
+    }
+    return
         (std::pow(x, 2) - 2*x + 2)/
                     (x-1);
 }
 
 int main() {
-    float 
+    float
         range_start=-4,
         range_end=4,
         range_step=0.5;

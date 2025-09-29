@@ -6,9 +6,9 @@
 
 // Newton method iteration
 float f(
-    float m, 
-    float S, 
-    float n, 
+    float m,
+    float S,
+    float n,
     float r) {
     return (
         (S*r*std::pow((1+r), n))/
@@ -17,9 +17,9 @@ float f(
 }
 
 float f_derivative(
-        float m, 
-        float S, 
-        float n, 
+        float m,
+        float S,
+        float n,
         float r) {
             float result=
             (S*(std::pow((r+1), (2*n+1)) + std::pow((r+1), n)*((-n-1)*r -1)))/
@@ -28,9 +28,9 @@ float f_derivative(
         }
 
 float newton_method_next_r(
-        float m, 
-        float S, 
-        float n, 
+        float m,
+        float S,
+        float n,
         float r) {
     float f_der=f_derivative(m, S, n, r),
     new_r=
@@ -40,10 +40,10 @@ float newton_method_next_r(
 }
 
 float newton_solve_f_for_r(
-    float m, 
-    float S, 
-    float n, 
-    int iterations, 
+    float m,
+    float S,
+    float n,
+    int iterations,
     float initial_guess) {
         float r=initial_guess, new_r=0;
         for (float i : range(0, iterations)) {
@@ -58,14 +58,14 @@ float newton_solve_f_for_r(
 }
 
 float newton_solve_f_for_r(
-    float m, 
-    float S, 
+    float m,
+    float S,
     float n) {
         return newton_solve_f_for_r(m, S, n, 10, 0.1);
 }
 
 float p(
-    float S, 
+    float S,
     float n,
     float m) {
     float r=newton_solve_f_for_r(m, S, n);
@@ -77,6 +77,10 @@ int main() {
         S=input_float("Введите S: "),
         m=input_float("Введите m: "),
         n=input_float("Введите n: ");
+    if (S<=0 or m<=0 or n<=0) {
+        print("Все параметры должны быть строго положительны")
+        return 1;
+    }
     print("");
     print("p="+str(p(S, n, m)));
     return 0;
