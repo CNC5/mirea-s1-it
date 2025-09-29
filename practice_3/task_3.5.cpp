@@ -23,7 +23,11 @@ std::vector<int> find_all_primes(int start, int end) {
 int main() {
     int
         s=2,
-        e=input_int("Введите натуральное число: ");
+        e=input_int("Введите натуральное число (конец диапазона): ");
+    if (e<=2) {
+        print("Число должно быть больше 2")ж
+        return 1;
+    }
     for (int p : find_all_primes(s, e)) {
         std::cout<<str(p)<<" ";
     }
