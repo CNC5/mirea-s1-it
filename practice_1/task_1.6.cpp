@@ -7,17 +7,35 @@ using namespace std;
 const float pi = 3.14;
 
 float cone_volume(float h, float R, float r) {
-    return (1/3)*pi*h*(pow(R, 2) + R*r + pow(r, 2));
+    return (pi*h*(R*R+R*r+r*r))/
+            3;
 }
 
 float cone_surface(float R, float r, float l) {
-    return pi*(pow(R, 2)+(R+r)*l+pow(r, 2));
+    return pi*(R*R+(R+r)*l+r*r);
+}
+
+float cone_l(float h, float R, float r) {
+    return sqrt((R - r) * (R - r) + h * h);
 }
 
 int main() {
-    cout<<"Введите параметры h, R, r и l: ";
     float h=0, R=0, r=0, l=0;
-    cin>>h>>R>>r>>l;
+    cout << "Введите радиус большого основания" << endl;
+    cin >> R;
+    cout << "Введите радиус малого основания" << endl;
+    cin >> r;
+    cout << "Введите высоту усеченного конуса" << endl;
+    cin >> h;
+    if (R <= 0 or r <= 0 or h <= 0) {
+        cout<<"Радиусы и высота должны быть положительными"<<endl;
+        return 0;
+    }
+    if (r >= R) {
+        cout<<"r должен быть меньше R"<<endl;
+        return 0;
+    }
+    l=cone_l(h, R, r);
     cout<<
     "Объем: "<<cone_volume(h, R, r)<<
     ", полная площадь поверхности: "<<cone_surface(R, r, l)<<endl;
