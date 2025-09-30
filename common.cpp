@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <regex>
+#include <chrono>
 
 #define str std::to_string
 
@@ -51,7 +52,7 @@ int input_int(std::string prompt) {
 }
 
 std::vector<float> range(float start, float end, float step) {
-    std::vector<float> out_range = {};
+    std::vector<float> out_range;
     for (float i=start; i<end+step; i += step) {
         out_range.push_back(i);
     }
@@ -72,4 +73,22 @@ std::vector<int> range(int start, int end, int step) {
 
 std::vector<int> range(int start, int end) {
     return range(start, end, 1);
+}
+
+std::chrono::milliseconds milliseconds_now() {
+    return
+    std::chrono::duration_cast<std::chrono::milliseconds>
+    (std::chrono::system_clock::now().time_since_epoch());
+}
+
+std::chrono::microseconds microseconds_now() {
+    return
+    std::chrono::duration_cast<std::chrono::microseconds>
+    (std::chrono::system_clock::now().time_since_epoch());
+}
+
+std::chrono::nanoseconds nanoseconds_now() {
+    return
+    std::chrono::duration_cast<std::chrono::nanoseconds>
+    (std::chrono::system_clock::now().time_since_epoch());
 }
