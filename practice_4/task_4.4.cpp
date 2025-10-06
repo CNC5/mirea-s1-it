@@ -22,10 +22,10 @@ char graph_char(float pixel_y, float target_y) {
     // graph ` if target y is higher than 0.8 in the pixel
     // graph + if target y is in the pixel center
     if ((pixel_y-0.2 > target_y) and (target_y > pixel_y-0.5)) {
-        return '`';
+        return '.';
     }
     if ((pixel_y+0.5 > target_y) and (target_y > pixel_y+0.2)) {
-        return '.';
+        return '`';
     }
     if ((pixel_y+0.5 > target_y) and (target_y > pixel_y-0.5)) {
         return '+';
@@ -45,7 +45,7 @@ void draw_dots(coordinates coords) {
         min_x=std::min(min_x, e.first);
         min_y=std::min(min_y, e.second);
     }
-    for (float y : range(min_y, max_y)) {
+    for (float y=max_y; y>min_y-1; y--) {
         for (float x : range(min_x, max_x, .1)) {
             std::cout<<graph_char(y, coords[x]);
         }
