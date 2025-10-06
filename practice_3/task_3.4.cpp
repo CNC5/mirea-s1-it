@@ -34,7 +34,7 @@ int main() {
         a=input_int("Введите число a: "),
         b=input_int("Введите число b: ");
     if (a<=0 or b<=0) {
-        print("Оба числа должны быть положительными")
+        print("Оба числа должны быть положительными");
         return 1;
     }
     print("НОД вычитанием: "+str(gcd_by_subtraction(a, b)));
