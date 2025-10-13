@@ -1,20 +1,21 @@
 #include <cmath>
 #include "../common.cpp"
 
-float sfunc(float s) {
+float s(float i) {
     float
         m=37,
-        i=3,
         c=64;
-    if (s==0) {
+    if (i==0) {
         return 0;
     }
-    return div(m*sfunc(s-1)+i, c).rem;
+    return div(m*s(i-1)+(i-1), c).rem;
 }
 
-#define generate_pseudorandom_number sfunc
+#define generate_pseudorandom_number s
 
 int main() {
-    print(generate_pseudorandom_number(100));
+    float
+        i=3;
+    print(s(i));
     return 0;
 }
