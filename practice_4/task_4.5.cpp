@@ -11,8 +11,6 @@ float s(float i) {
     return div(m*s(i-1)+(i-1), c).rem;
 }
 
-#define generate_pseudorandom_number s
-
 int main() {
     float
         i=3;
